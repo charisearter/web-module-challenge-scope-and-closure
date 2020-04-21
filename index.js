@@ -14,8 +14,8 @@
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
 */
-function processFirstItem(stringList, callback) {
-  return callback(stringList[0])
+function processFirstItem(stringList, callback) {//parameter 1 is an array and 2 is a callback
+  return callback(stringList[0])//returns array 1st item (index 0) using callback function
 }
 
 // ⭐️ Example Challenge END ⭐️
@@ -26,12 +26,17 @@ function processFirstItem(stringList, callback) {
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
- * 1. What is the difference between counter1 and counter2?
+ * Q1. What is the difference between counter1 and counter2?
  * 
- * 2. Which of the two uses a closure? How can you tell?
+ * A1. Counter1 has a global scope while counter 2 has a function scope.
  * 
- * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * Q2. Which of the two uses a closure? How can you tell?
+ * 
+ * A2. Counter1 because there is another function nested inside of it. It has the parent child relationship.
+ * 
+ * Q3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
+ * A3. Counter 1 would be preferable if it is needed where a score or amount is kept without being reset, like for a game. Counter2 would be good for a callback that would see how many times an item is in the index of an array.
 */
 
 // counter1 code
@@ -56,11 +61,21 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
+function inning(){
+//make a variable to store value
+  let score = Math.random() * 2;
+  score = Math.round(score);
+  return(score);
 
 }
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
+console.log(inning());
 
 /* Task 3: finalScore()
 
