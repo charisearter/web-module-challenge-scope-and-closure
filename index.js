@@ -89,28 +89,40 @@ finalScore(inning, 9) might return:
 }
 
 */ 
-
-function finalScore(inning, number){
-  //make an empty Object
-  let homeTeam = [];
-  let awayTeam = [];
-  const totalScore = {home: 0, away: 0};
+//callback is inning function and number is variable for whatever number of innings
+function finalScore(inning, number){ 
+  let homeTeam = []; //empty array to hold home team scores
+  let awayTeam = []; //empty array to hold away team scores
+  //total score as an object with keys for Home and Away with the value of 0
+  const totalScore = {Home: 0, Away: 0}; 
+  //for loop with i starting at 1 (i is inning number for this instance)
+  //Loop will go until i (the inning number) is equal to the number variable
+  //i will incremnt by 1 until it is equal to the number then stop
   for (let i = 1; i<= number; i++){
+    //variable for home set to 0
     let home = 0;
+    //variable for away score set to 0
     let away = 0;
+    // home = random number according to innings function
     home = inning();
+    //away = random number according to innings function
     away = inning();
-   homeTeam.push(home); //push home into homeTEam array
-   awayTeam.push(away);//push away into awayTeam array
+    //push home value into homeTeam array
+   homeTeam.push(home);
+   //push away value into awayTeam array 
+   awayTeam.push(away);
   }
-  let homeScore = homeTeam.reduce((totalHome, score )=> { //totalHOme is running total and score = running total
+  //home score variable = homeTeam array reduced into one value
+  //totalHome will be the scores added together
+  //score is the score being added into totalScore
+  let homeScore = homeTeam.reduce((totalHome, score )=> { 
     return totalHome + score;
    }, 0);
   let awayScore = awayTeam.reduce((totalAway,score) => {
      return totalAway + score;
    }, 0);
-   totalScore.home = homeScore;
-   totalScore.away = awayScore;
+   totalScore.Home = homeScore;
+   totalScore.Away = awayScore;
    return totalScore;
   }
    console.log(finalScore(inning, 9));
@@ -136,9 +148,18 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 
 Final Score: awayTeam - homeTeam */
-
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+ // callback1 callback2 inningNumberVariable  ???
+function scoreboard(/* CODE HERE */) { //it takes 3 call backs? 
+  //for loop to iterate the number of times specified
+  //for loop i will be used for inning number
+  // any i 4+ ends in th
+  // number = 1 is st 2 is nd 3 is rd
+  //make homeTeam variable = to inning function
+  //make awayTeam variable - to inning function
+  //each time loop iterates return sentence  number inning: display awayTeamScore - HomeTeam Score
+  
 }
+
+//create getInningScore function
 
 
