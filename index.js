@@ -66,7 +66,6 @@ function inning(){
   let score = Math.random() * 2;
   score = Math.round(score);
   return(score);
-
 }
 console.log(inning());
 console.log(inning());
@@ -91,12 +90,31 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
-}
-
+function finalScore(inning, number){
+  //make an empty Object
+  let homeTeam = [];
+  let awayTeam = [];
+  const totalScore = {home: 0, away: 0};
+  for (let i = 1; i<= number; i++){
+    let home = 0;
+    let away = 0;
+    home = inning();
+    away = inning();
+   homeTeam.push(home); //push home into homeTEam array
+   awayTeam.push(away);//push away into awayTeam array
+  }
+  let homeScore = homeTeam.reduce((totalHome, score )=> { //totalHOme is running total and score = running total
+    return totalHome + score;
+   }, 0);
+  let awayScore = awayTeam.reduce((totalAway,score) => {
+     return totalAway + score;
+   }, 0);
+   totalScore.home = homeScore;
+   totalScore.away = awayScore;
+   return totalScore;
+  }
+   console.log(finalScore(inning, 9));
+ 
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
