@@ -148,18 +148,46 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 
 Final Score: awayTeam - homeTeam */
- // callback1 callback2 inningNumberVariable  ???
-function scoreboard(/* CODE HERE */) { //it takes 3 call backs? 
-  //for loop to iterate the number of times specified
-  //for loop i will be used for inning number
-  // any i 4+ ends in th
-  // number = 1 is st 2 is nd 3 is rd
-  //make homeTeam variable = to inning function
-  //make awayTeam variable - to inning function
-  //each time loop iterates return sentence  number inning: display awayTeamScore - HomeTeam Score
-  
-}
+//do getInningsFnction here
 
-//create getInningScore function
+function getInnings(inning){
+  return {
+    home: inning(), 
+    away: inning()
+  };
+};
+ // callback1 callback2 inningNumberVariable 
+function scoreboard(getInnings, inning, number) { 
+//for loop to iterate the number of times specified / while loop at final number change Final score 
+let homeTeam = 0;
+let awayTeam = 0;
+let results = [];
+  for (let i = 1; i<= number; i++){
+    const currentInnings = getInnings(inning); //current innings random score
+    homeTeam += currentInnings.home; //targets home object key and adds score
+    awayTeam += currentInnings.away; //targets away object key and adds score  
+    results.push(`${i+1} inning: ${currentInnings.away} - ${currentInnings.home}`)
+  }//ends for statement
+  if ( homeTeam === awayTeam){
+    results.push(`This game will require extra innings`)
+  }else{
+    results.push(`Final Score: ${awayTeam} - ${homeTeam}`)
+}
+  //results return
+  return results;
+  
+}//ends function
+  console.log(scoreboard(getInnings,inning,9));
+  
+  //for loop i will be used for inning number (array of strings?)
+  // array of strings for return, each iteration adds to the next... .map ??
+  
+
+  //each time loop iterates return sentence  number inning: display awayTeamScore - HomeTeam Score
+  //returns a string
+  
+
+
+
 
 
